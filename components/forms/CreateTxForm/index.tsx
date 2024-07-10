@@ -174,10 +174,21 @@ const CreateTxForm = ({ router, senderAddress, accountOnChain }: CreateTxFormPro
       <h4 className="mx-0 my-5 block font-bold">Add New Msg</h4>
       <div className="btn-cluster-grid">
         <div className="btn-cluster">
+          <label>Cyber</label>
+          <ul>
+            <li>
+              <Button label="Cyberlink" onClick={() => addMsgType(MsgTypeUrls.Cyberlink)} />
+            </li>
+            <li>
+              <Button label="Investmint" onClick={() => addMsgType(MsgTypeUrls.Investmint)} />
+            </li>
+          </ul>
+        </div>
+        <div className="btn-cluster">
           <label>Bank</label>
           <ul>
             <li>
-              <Button label="Send" onClick={() => addMsgType(MsgTypeUrls.Send)} />
+            <Button label="Send" onClick={() => addMsgType(MsgTypeUrls.Send)} />
             </li>
           </ul>
         </div>
@@ -294,10 +305,11 @@ const CreateTxForm = ({ router, senderAddress, accountOnChain }: CreateTxFormPro
         loading={processing}
       />
       <style jsx>{`
-        p {
-          margin-top: 15px;
-        }
-        .empty-msg-warning {
+          p {
+              margin-top: 15px;
+          }
+
+          .empty-msg-warning {
           margin: 0;
           font-size: 16px;
         }
