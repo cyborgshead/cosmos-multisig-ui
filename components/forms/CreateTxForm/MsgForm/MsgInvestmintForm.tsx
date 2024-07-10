@@ -1,14 +1,11 @@
-import { MsgInvestmintEncodeObject } from "@cybercongress/cyber-js/src/encodeobjects"
+import { MsgInvestmintEncodeObject } from "@cybercongress/cyber-js/build/encodeobjects"
 import { parseCoins } from "@cosmjs/stargate";
-import { longify } from "@cosmjs/stargate/build/queryclient";
 import { useEffect, useState } from "react";
 import { MsgGetter } from "..";
 import { MsgCodecs, MsgTypeUrls } from "../../../../types/txMsg";
 import Input from "../../../inputs/Input";
 import Select from "../../../inputs/Select";
 import StackableContainer from "../../../layout/StackableContainer";
-import { Uint53 } from "@cosmjs/math";
-import { MsgInvestmint } from "../../../../../cyber-js/build/codec/cyber/resources/v1beta1/tx";
 
 const MsgInvestmintForm = ({ senderAddress, setMsgGetter, deleteMsg }: MsgInvestmintFormProps) => {
   const [amount, setAmount] = useState("");
