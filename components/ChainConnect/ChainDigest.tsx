@@ -89,7 +89,7 @@ export default function ChainDigest({ chain, simplify }: ChainItemProps) {
         <div className="flex items-center pt-2 hover:cursor-pointer">
           <ExternalLink className="mr-2 h-4 w-4" />
           <Link
-            href={`https://github.com/cosmos/chain-registry/tree/master/${
+            href={`https://github.com/cyborgshead/chain-registry/tree/master/${
               chains.testnets.has(chain.registryName) ? `testnets/` : ""
             }${chain.registryName}`}
             target="_blank"

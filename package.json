@@ -14,6 +14,7 @@
   "dependencies": {
     "@cosmjs/amino": "^0.32.4",
     "@cosmjs/cosmwasm-stargate": "^0.32.4",
+    "@cybercongress/cyber-js": "0.4.0",
     "@cosmjs/crypto": "^0.32.4",
     "@cosmjs/encoding": "^0.32.4",
     "@cosmjs/ledger-amino": "^0.32.4",

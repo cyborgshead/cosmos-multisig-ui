@@ -4,8 +4,8 @@ import { GithubChainRegistryItem, RegistryAsset, RegistryChain } from "@/types/c
 import { preventUnhandledRejections } from "./promises";
 import { requestGhJson } from "./request";
 
-const chainRegistryRepo = "cosmos/chain-registry";
-const repoBranch = "master";
+const chainRegistryRepo = "cyborgshead/chain-registry";
+const repoBranch = "bostrom-update";
 const shaUrl = `https://api.github.com/repos/${chainRegistryRepo}/commits/${repoBranch}`;
 const mainnetsUrl = `https://api.github.com/repos/${chainRegistryRepo}/contents`;
 const testnetsUrl = `https://api.github.com/repos/${chainRegistryRepo}/contents/testnets`;

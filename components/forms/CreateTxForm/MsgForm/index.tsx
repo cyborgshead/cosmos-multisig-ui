@@ -15,6 +15,8 @@ import MsgUndelegateForm from "./MsgUndelegateForm";
 import MsgUpdateAdminForm from "./MsgUpdateAdminForm";
 import MsgVoteForm from "./MsgVoteForm";
 import MsgWithdrawDelegatorRewardForm from "./MsgWithdrawDelegatorRewardForm";
+import MsgCyberlinkForm from "./MsgCyberlinkForm";
+import MsgInvestmintForm from "./MsgInvestmintForm";
 
 interface MsgFormProps {
   readonly msgType: MsgTypeUrl;
@@ -62,6 +64,10 @@ const MsgForm = ({ msgType, ...restProps }: MsgFormProps) => {
       return <MsgExecuteContractForm {...restProps} />;
     case MsgTypeUrls.MigrateContract:
       return <MsgMigrateContractForm {...restProps} />;
+    case MsgTypeUrls.Cyberlink:
+      return <MsgCyberlinkForm {...restProps} />;
+    case MsgTypeUrls.Investmint:
+      return <MsgInvestmintForm {...restProps} />;
     default:
       return null;
   }

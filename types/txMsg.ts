@@ -19,6 +19,8 @@ import {
   MsgUpdateAdmin,
 } from "cosmjs-types/cosmwasm/wasm/v1/tx";
 import { MsgTransfer } from "cosmjs-types/ibc/applications/transfer/v1/tx";
+import { MsgCyberlink } from "@cybercongress/cyber-js/src/codec/cyber/graph/v1beta1/tx"
+import { MsgInvestmint } from "@cybercongress/cyber-js/src/codec/cyber/resources/v1beta1/tx"
 
 export const MsgTypeUrls = {
   // Bank
@@ -43,6 +45,9 @@ export const MsgTypeUrls = {
   UpdateAdmin: "/cosmwasm.wasm.v1.MsgUpdateAdmin",
   ExecuteContract: "/cosmwasm.wasm.v1.MsgExecuteContract",
   MigrateContract: "/cosmwasm.wasm.v1.MsgMigrateContract",
+  // Cyber
+  Cyberlink: "/cyber.graph.v1beta1.MsgCyberlink",
+  Investmint: "/cyber.resources.v1beta1.MsgInvestmint",
 } as const;
 
 export type MsgTypeUrl = (typeof MsgTypeUrls)[keyof typeof MsgTypeUrls];
@@ -70,4 +75,7 @@ export const MsgCodecs = {
   [MsgTypeUrls.UpdateAdmin]: MsgUpdateAdmin,
   [MsgTypeUrls.ExecuteContract]: MsgExecuteContract,
   [MsgTypeUrls.MigrateContract]: MsgMigrateContract,
+  // Cyber
+  [MsgTypeUrls.Cyberlink]: MsgCyberlink,
+  [MsgTypeUrls.Investmint]: MsgInvestmint,
 };

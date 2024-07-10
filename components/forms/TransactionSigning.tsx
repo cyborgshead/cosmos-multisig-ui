@@ -24,6 +24,7 @@ import { getConnectError } from "../../lib/errorHelpers";
 import HashView from "../dataViews/HashView";
 import Button from "../inputs/Button";
 import StackableContainer from "../layout/StackableContainer";
+import {createCyberAminoConverters} from "@cybercongress/cyber-js";
 
 interface TransactionSigningProps {
   readonly signatures: DbSignatureObj[];
@@ -149,6 +150,7 @@ const TransactionSigning = (props: TransactionSigningProps) => {
         aminoTypes: new AminoTypes({
           ...createDefaultAminoConverters(),
           ...createWasmAminoConverters(),
+          ...createCyberAminoConverters(),
         }),
       });
 

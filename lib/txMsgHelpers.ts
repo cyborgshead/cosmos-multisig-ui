@@ -43,6 +43,10 @@ const gasOfMsg = (msgType: MsgTypeUrl): number => {
       return 150_000;
     case MsgTypeUrls.MigrateContract:
       return 150_000;
+    case MsgTypeUrls.Cyberlink:
+      return 420_000;
+    case MsgTypeUrls.Investmint:
+      return 420_000;
     default:
       throw new Error("Unknown msg type");
   }
