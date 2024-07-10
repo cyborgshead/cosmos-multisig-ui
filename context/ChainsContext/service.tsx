@@ -107,7 +107,7 @@ export const getChain = (chains: ChainItems) => {
   const urlChain = getChainFromUrl(chainNameFromUrl);
   const envfileChain = getChainFromEnvfile(chainNameFromUrl);
   const storedChain = getChainFromStorage(
-    chainNameFromUrl || envfileChain.registryName || "cosmoshub",
+    chainNameFromUrl || envfileChain.registryName || "bostrom",
     chains,
   );
 
