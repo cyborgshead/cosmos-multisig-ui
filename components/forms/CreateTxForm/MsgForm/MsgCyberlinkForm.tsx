@@ -1,5 +1,5 @@
 import { MsgCyberlinkEncodeObject } from "@cybercongress/cyber-js/build/encodeobjects"
-import { Link } from "@cybercongress/cyber-js/build/types"
+import { Link } from "@cybercongress/cyber-js/build/codec/cyber/graph/v1beta1/types"
 import { useEffect, useState } from "react";
 import { MsgGetter } from "..";
 import { MsgCodecs, MsgTypeUrls } from "../../../../types/txMsg";
