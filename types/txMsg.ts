@@ -19,8 +19,8 @@ import {
   MsgUpdateAdmin,
 } from "cosmjs-types/cosmwasm/wasm/v1/tx";
 import { MsgTransfer } from "cosmjs-types/ibc/applications/transfer/v1/tx";
-import { MsgCyberlink } from "@cybercongress/cyber-js/src/codec/cyber/graph/v1beta1/tx"
-import { MsgInvestmint } from "@cybercongress/cyber-js/src/codec/cyber/resources/v1beta1/tx"
+import { MsgCyberlink } from "@cybercongress/cyber-js/build/codec/cyber/graph/v1beta1/tx"
+import { MsgInvestmint } from "@cybercongress/cyber-js/build/codec/cyber/resources/v1beta1/tx"
 
 export const MsgTypeUrls = {
   // Bank
