@@ -81,6 +81,7 @@ const importMsgFromJson = (msg: EncodeObject): EncodeObject => {
   if (isKnownMsgTypeUrl(msg.typeUrl)) {
     if (msg.typeUrl === MsgTypeUrls.Grant) {
       // Handle MsgGrant manually
+      // @ts-ignore @typescript-eslint/no-explicit-any
       const grantValue = msg.value as any;
       if (grantValue.grant && grantValue.grant.authorization) {
         const auth = grantValue.grant.authorization;
