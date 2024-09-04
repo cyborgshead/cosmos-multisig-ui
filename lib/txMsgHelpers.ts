@@ -49,6 +49,12 @@ const gasOfMsg = (msgType: MsgTypeUrl): number => {
       return 420_000;
     case MsgTypeUrls.Investmint:
       return 420_000;
+    case MsgTypeUrls.Grant:
+      return 420_000;
+    case MsgTypeUrls.Revoke:
+      return 420_000;
+    case MsgTypeUrls.Exec:
+      return 420_000;
     default:
       throw new Error("Unknown msg type");
   }
@@ -73,8 +79,22 @@ export const exportMsgToJson = (msg: EncodeObject): EncodeObject => {
 
 const importMsgFromJson = (msg: EncodeObject): EncodeObject => {
   if (isKnownMsgTypeUrl(msg.typeUrl)) {
-    const parsedValue = MsgCodecs[msg.typeUrl].fromJSON(msg.value);
-    return { ...msg, value: parsedValue };
+    if (msg.typeUrl === MsgTypeUrls.Grant) {
+      // Handle MsgGrant manually
+      const grantValue = msg.value as any;
+      if (grantValue.grant && grantValue.grant.authorization) {
+        const auth = grantValue.grant.authorization;
+        grantValue.grant.authorization = {
+          typeUrl: auth.typeUrl,
+          value: auth.value
+        };
+      }
+      return { ...msg, value: grantValue };
+    } else {
+      // Use MsgCodecs for other message types
+      const parsedValue = MsgCodecs[msg.typeUrl].fromJSON(msg.value);
+      return { ...msg, value: parsedValue };
+    }
   }
 
   throw new Error("Unknown msg type");

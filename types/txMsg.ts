@@ -24,7 +24,7 @@ import {
 import { MsgTransfer } from "cosmjs-types/ibc/applications/transfer/v1/tx";
 import { MsgCyberlink } from "@cybercongress/cyber-js/build/codec/cyber/graph/v1beta1/tx"
 import { MsgInvestmint } from "@cybercongress/cyber-js/build/codec/cyber/resources/v1beta1/tx"
-
+import { MsgGrant, MsgRevoke, MsgExec } from "cosmjs-types/cosmos/authz/v1beta1/tx";
 export const MsgTypeUrls = {
   // Bank
   Send: "/cosmos.bank.v1beta1.MsgSend",
@@ -52,6 +52,10 @@ export const MsgTypeUrls = {
   // Cyber
   Cyberlink: "/cyber.graph.v1beta1.MsgCyberlink",
   Investmint: "/cyber.resources.v1beta1.MsgInvestmint",
+  // Authz
+  Grant: "/cosmos.authz.v1beta1.MsgGrant",
+  Revoke: "/cosmos.authz.v1beta1.MsgRevoke",
+  Exec: "/cosmos.authz.v1beta1.MsgExec",
 } as const;
 
 export type MsgTypeUrl = (typeof MsgTypeUrls)[keyof typeof MsgTypeUrls];
@@ -83,4 +87,8 @@ export const MsgCodecs = {
   // Cyber
   [MsgTypeUrls.Cyberlink]: MsgCyberlink,
   [MsgTypeUrls.Investmint]: MsgInvestmint,
+  // Authz
+  [MsgTypeUrls.Grant]: MsgGrant,
+  [MsgTypeUrls.Revoke]: MsgRevoke,
+  [MsgTypeUrls.Exec]: MsgExec,
 };

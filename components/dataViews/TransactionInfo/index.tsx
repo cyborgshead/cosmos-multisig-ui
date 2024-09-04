@@ -20,6 +20,7 @@ import TxMsgUndelegateDetails from "./TxMsgUndelegateDetails";
 import TxMsgUpdateAdminDetails from "./TxMsgUpdateAdminDetails";
 import TxMsgVoteDetails from "./TxMsgVoteDetails";
 import TxMsgWithdrawDelegatorRewardDetails from "./TxMsgWithdrawDelegatorRewardDetails";
+import TxMsgGrantDetails from "./TxMsgGrantDetails";
 
 const TxMsgDetails = ({ typeUrl, value: msgValue }: EncodeObject) => {
   switch (typeUrl) {
@@ -62,6 +63,12 @@ const TxMsgDetails = ({ typeUrl, value: msgValue }: EncodeObject) => {
       return <TxMsgExecuteContractDetails msgValue={msgValue} />;
     case MsgTypeUrls.MigrateContract:
       return <TxMsgMigrateContractDetails msgValue={msgValue} />;
+    case MsgTypeUrls.Grant:
+      return <TxMsgGrantDetails msgValue={msgValue} />;
+    // case MsgTypeUrls.Revoke:
+    //   return <TxMsgRevokeDetails msgValue={msgValue} />;
+    // case MsgTypeUrls.Exec:
+    //   return <TxMsgExecDetails msgValue={msgValue} />;
     default:
       return null;
   }
