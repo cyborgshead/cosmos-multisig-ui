@@ -131,7 +131,7 @@ const MsgMultiSendForm = ({ senderAddress, setMsgGetter, deleteMsg }: MsgMultiSe
         });
       } catch (error) {
         console.error("Error creating message value:", error);
-        setErrors((prev) => ({ ...prev, general: `Error creating message: ${error.message}` }));
+        setErrors((prev) => ({ ...prev, general: `Error creating message: ${error instanceof Error ? error.message : String(error)}` }));
         return null;
       }
     };
