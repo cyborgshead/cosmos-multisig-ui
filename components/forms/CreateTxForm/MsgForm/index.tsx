@@ -9,6 +9,7 @@ import MsgInstantiateContract2Form from "./MsgInstantiateContract2Form";
 import MsgInstantiateContractForm from "./MsgInstantiateContractForm";
 import MsgMigrateContractForm from "./MsgMigrateContractForm";
 import MsgSendForm from "./MsgSendForm";
+import MsgMultiSendForm from "./MsgMultiSendForm";
 import MsgSetWithdrawAddressForm from "./MsgSetWithdrawAddressForm";
 import MsgTransferForm from "./MsgTransferForm";
 import MsgUndelegateForm from "./MsgUndelegateForm";
@@ -30,6 +31,8 @@ const MsgForm = ({ msgType, ...restProps }: MsgFormProps) => {
     // Bank
     case MsgTypeUrls.Send:
       return <MsgSendForm {...restProps} />;
+    case MsgTypeUrls.MultiSend:
+      return <MsgMultiSendForm {...restProps} />;
     // Staking
     case MsgTypeUrls.Delegate:
       return <MsgDelegateForm {...restProps} />;

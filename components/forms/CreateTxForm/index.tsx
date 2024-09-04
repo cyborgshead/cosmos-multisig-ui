@@ -191,6 +191,11 @@ const CreateTxForm = ({ router, senderAddress, accountOnChain }: CreateTxFormPro
             <Button label="Send" onClick={() => addMsgType(MsgTypeUrls.Send)} />
             </li>
           </ul>
+          <ul>
+            <li>
+            <Button label="MultiSend" onClick={() => addMsgType(MsgTypeUrls.MultiSend)} />
+            </li>
+          </ul>
         </div>
         <div className="btn-cluster">
           <label>Governance</label>
