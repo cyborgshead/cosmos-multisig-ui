@@ -13,6 +13,7 @@ import TxMsgInstantiateContract2Details from "./TxMsgInstantiateContract2Details
 import TxMsgInstantiateContractDetails from "./TxMsgInstantiateContractDetails";
 import TxMsgMigrateContractDetails from "./TxMsgMigrateContractDetails";
 import TxMsgSendDetails from "./TxMsgSendDetails";
+import TxMsgMultiSendDetails from "./TxMsgMultiSendDetails";
 import TxMsgSetWithdrawAddressDetails from "./TxMsgSetWithdrawAddressDetails";
 import TxMsgTransferDetails from "./TxMsgTransferDetails";
 import TxMsgUndelegateDetails from "./TxMsgUndelegateDetails";
@@ -25,6 +26,8 @@ const TxMsgDetails = ({ typeUrl, value: msgValue }: EncodeObject) => {
     // Bank
     case MsgTypeUrls.Send:
       return <TxMsgSendDetails msgValue={msgValue} />;
+    case MsgTypeUrls.MultiSend:
+      return <TxMsgMultiSendDetails msgValue={msgValue} />;
     // Staking
     case MsgTypeUrls.Delegate:
       return <TxMsgDelegateDetails msgValue={msgValue} />;

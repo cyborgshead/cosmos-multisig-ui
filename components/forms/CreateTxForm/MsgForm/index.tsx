@@ -64,6 +64,7 @@ const MsgForm = ({ msgType, ...restProps }: MsgFormProps) => {
       return <MsgExecuteContractForm {...restProps} />;
     case MsgTypeUrls.MigrateContract:
       return <MsgMigrateContractForm {...restProps} />;
+    // Cyber
     case MsgTypeUrls.Cyberlink:
       return <MsgCyberlinkForm {...restProps} />;
     case MsgTypeUrls.Investmint:

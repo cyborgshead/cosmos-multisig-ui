@@ -1,4 +1,7 @@
-import { MsgSend } from "cosmjs-types/cosmos/bank/v1beta1/tx";
+import { 
+  MsgSend,
+  MsgMultiSend
+} from "cosmjs-types/cosmos/bank/v1beta1/tx";
 import {
   MsgFundCommunityPool,
   MsgSetWithdrawAddress,
@@ -25,6 +28,7 @@ import { MsgInvestmint } from "@cybercongress/cyber-js/build/codec/cyber/resourc
 export const MsgTypeUrls = {
   // Bank
   Send: "/cosmos.bank.v1beta1.MsgSend",
+  MultiSend: "/cosmos.bank.v1beta1.MsgMultiSend",
   // Staking
   Delegate: "/cosmos.staking.v1beta1.MsgDelegate",
   Undelegate: "/cosmos.staking.v1beta1.MsgUndelegate",
@@ -55,6 +59,7 @@ export type MsgTypeUrl = (typeof MsgTypeUrls)[keyof typeof MsgTypeUrls];
 export const MsgCodecs = {
   // Bank
   [MsgTypeUrls.Send]: MsgSend,
+  [MsgTypeUrls.MultiSend]: MsgMultiSend,
   // Staking
   [MsgTypeUrls.Delegate]: MsgDelegate,
   [MsgTypeUrls.Undelegate]: MsgUndelegate,

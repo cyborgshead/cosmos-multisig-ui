@@ -8,6 +8,7 @@ import Page from "../../../../components/layout/Page";
 import StackableContainer from "../../../../components/layout/StackableContainer";
 import { useChains } from "../../../../context/ChainsContext";
 import { isAccount, getHostedMultisig } from "../../../../lib/multisigHelpers";
+import CreateTxJsonForm from "@/components/forms/CreateTxJsonForm";
 
 const NewTransactionPage = () => {
   const { chain } = useChains();
@@ -81,6 +82,9 @@ const NewTransactionPage = () => {
         ) : null}
         {accountOnChain && multisigAddress ? (
           <CreateTxForm senderAddress={multisigAddress} accountOnChain={accountOnChain} />
+        ) : null}
+        {accountOnChain && multisigAddress ? (
+          <CreateTxJsonForm senderAddress={multisigAddress} accountOnChain={accountOnChain} />
         ) : null}
       </StackableContainer>
       <style jsx>{`

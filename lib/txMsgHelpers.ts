@@ -7,6 +7,8 @@ const gasOfMsg = (msgType: MsgTypeUrl): number => {
     // Bank
     case MsgTypeUrls.Send:
       return 100_000;
+    case MsgTypeUrls.MultiSend:
+      return 4_200_000;
     // Staking
     case MsgTypeUrls.Delegate:
       // This is enough for 1 delegation and 1 autoclaim. But it is probably too low for
