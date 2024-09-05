@@ -135,19 +135,20 @@ export const msgTypeCountsFromJson = (txJson: string): readonly MsgTypeCount[] =
     return [];
   }
 
-  const msgTypeCounts: { msgType: string; count: number }[] = [];
+  const msgTypeCounts: { [msgType: string]: number } = {};
 
-  const msgTypes = tx.msgs.map(({ typeUrl }) => typeUrl.split(".Msg")[1]);
+  const msgTypes = tx.msgs.map(({ typeUrl }) => {
+    const parts = typeUrl.split(".Msg");
+    return parts.length > 1 ? parts[1] : typeUrl;
+  });
 
   for (const msgType of msgTypes) {
-    const foundIndex = msgTypeCounts.findIndex((msgTypeCount) => msgTypeCount.msgType === msgType);
-
-    if (foundIndex !== -1) {
-      msgTypeCounts[foundIndex].count++;
+    if (msgTypeCounts[msgType]) {
+      msgTypeCounts[msgType]++;
     } else {
-      msgTypeCounts.push({ msgType, count: 1 });
+      msgTypeCounts[msgType] = 1;
     }
   }
 
-  return msgTypeCounts;
+  return Object.entries(msgTypeCounts).map(([msgType, count]) => ({ msgType, count }));
 };
