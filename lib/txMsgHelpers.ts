@@ -81,8 +81,14 @@ const importMsgFromJson = (msg: EncodeObject): EncodeObject => {
   if (isKnownMsgTypeUrl(msg.typeUrl)) {
     if (msg.typeUrl === MsgTypeUrls.Grant) {
       // Handle MsgGrant manually
-      // @ts-ignore @typescript-eslint/no-explicit-any
-      const grantValue = msg.value as any;
+      const grantValue = msg.value as {
+        grant?: {
+          authorization?: {
+            typeUrl?: string;
+            value?: string;
+          };
+        };
+      };
       if (grantValue.grant && grantValue.grant.authorization) {
         const auth = grantValue.grant.authorization;
         grantValue.grant.authorization = {
@@ -109,9 +115,9 @@ export const dbTxFromJson = (txJson: string): DbTransactionParsedDataJson | null
     return dbTx;
   } catch (error) {
     if (error instanceof Error) {
-      console.error(error.message);
+      console.error(`Error parsing tx JSON from DB: ${error.message}`);
     } else {
-      console.error("Error when parsing tx JSON from DB");
+      console.error("Unknown error when parsing tx JSON from DB");
     }
 
     return null;
